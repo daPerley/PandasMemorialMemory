@@ -468,12 +468,14 @@
             // 
             // lblTime
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(58, 247);
+            this.lblTime.Font = new System.Drawing.Font("Monkey Fingers NF", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(12, 165);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(35, 13);
+            this.lblTime.Size = new System.Drawing.Size(150, 30);
             this.lblTime.TabIndex = 26;
             this.lblTime.Text = "label1";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -514,7 +516,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMemoryCard19)).EndInit();
             this.gameArea.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
