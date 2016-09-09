@@ -11,7 +11,7 @@ namespace Memory
 {
     public partial class Form1 : Form
     {
-        private bool allowClick = true;
+        private bool allowClick = false;
         private PictureBox firstGuess;
         private readonly Random random = new Random();
         private readonly Timer clickTimer = new Timer();
@@ -23,14 +23,15 @@ namespace Memory
             InitializeComponent();
             SetRandomImages();
             HideImages();
-            clickTimer.Interval = 1000;
-            clickTimer.Tick += ClickTimer_Tick;
         }
 
         private void lblStart_Click(object sender, EventArgs e)
         {
             StartGameTimer();
             lblStart.Hide();
+            clickTimer.Interval = 1000;
+            clickTimer.Tick += ClickTimer_Tick;
+            allowClick = true;
         }
 
         public PictureBox[] PictureBoxes
@@ -154,7 +155,7 @@ namespace Memory
 
             MessageBox.Show("You won!", "Victory", MessageBoxButtons.OK);
             ResetImages();
-
+            allowClick = false;
         }
 
         private void ClickTimer_Tick(object sender, EventArgs e)
