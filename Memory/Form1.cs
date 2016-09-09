@@ -1,4 +1,6 @@
-﻿using PandasMemorialMemory.Properties;
+﻿using CryptographyShuffle;
+using PandasMemorialMemory.Classes;
+using PandasMemorialMemory.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,41 +15,23 @@ namespace Memory
         private PictureBox firstGuess;
         private readonly Random random = new Random();
         private readonly Timer clickTimer = new Timer();
-        int ticks = 30;
-        readonly Timer timer = new Timer { Interval = 100 };
+        int ticks = 600;
+        readonly Timer timer = new Timer { Interval = 1000 };
 
         public Form1()
         {
             InitializeComponent();
             SetRandomImages();
             HideImages();
-            StartGameTimer();
             clickTimer.Interval = 1000;
             clickTimer.Tick += ClickTimer_Tick;
-         }
+        }
 
-        //public void ImageRandomizer()
-        //{
-        //    List<string> whichImage = new List<string>();
-
-        //    for (int image = 1; image <= 12; image++)
-        //    {
-        //        whichImage.Add(("perlypanda" + image.ToString()));
-        //        whichImage.Add(("perlypanda" + image.ToString()));
-        //    }
-
-        //    whichImage.Shuffle();
-
-        //    //var indexCounter = 0;
-
-        //    //foreach (var pictureBox in gameArea.Controls.OfType<PictureBox>())
-        //    //{
-        //    //    var picPath = @"E:\Nackademin\C#\v36\Memory\Memory\Resources\" + whichImage[indexCounter] + ".jpg";
-        //    //    pictureBox.Image = Image.FromFile(picPath);
-
-        //    //    ++indexCounter;
-        //    //}
-        //}
+        private void lblStart_Click(object sender, EventArgs e)
+        {
+            StartGameTimer();
+            lblStart.Hide();
+        }
 
         public PictureBox[] PictureBoxes
         {
@@ -82,16 +66,16 @@ namespace Memory
         {
             timer.Start();
             timer.Tick += delegate
-           {
-               ticks--;
-               if (ticks == -1)
-               {
-                   timer.Stop();
-                   ResetImages();
-               }
-               var time = TimeSpan.FromSeconds(ticks);
-               lblTime.Text = "00:" + time.ToString("ss");
-           };
+            {
+                ticks--;
+                if (ticks == -1)
+                {
+                    timer.Stop();
+                    ResetImages();
+                }
+                var time = TimeSpan.FromSeconds(ticks);
+                lblTime.Text = time.ToString("m" + "ss");
+            };
         }
 
         private void ResetImages()
@@ -168,8 +152,8 @@ namespace Memory
             firstGuess = null;
             if (PictureBoxes.Any(p => p.Visible)) return;
 
-                MessageBox.Show("You won!", "Harambe", MessageBoxButtons.OK);
-                ResetImages();
+            MessageBox.Show("You won!", "Victory", MessageBoxButtons.OK);
+            ResetImages();
 
         }
 

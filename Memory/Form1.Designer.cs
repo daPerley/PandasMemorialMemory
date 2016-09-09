@@ -55,6 +55,7 @@
             this.picMemoryCard19 = new System.Windows.Forms.PictureBox();
             this.gameArea = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMemoryCard24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMemoryCard18)).BeginInit();
@@ -474,8 +475,20 @@
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(150, 30);
             this.lblTime.TabIndex = 26;
-            this.lblTime.Text = "label1";
+            this.lblTime.Text = "10:00";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblStart
+            // 
+            this.lblStart.Font = new System.Drawing.Font("Monkey Fingers NF", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStart.ForeColor = System.Drawing.Color.White;
+            this.lblStart.Location = new System.Drawing.Point(12, 257);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(150, 30);
+            this.lblStart.TabIndex = 27;
+            this.lblStart.Text = "Start!";
+            this.lblStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStart.Click += new System.EventHandler(this.lblStart_Click);
             // 
             // Form1
             // 
@@ -483,6 +496,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(944, 501);
+            this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.gameArea);
             this.Controls.Add(this.pictureBox1);
@@ -546,8 +560,9 @@
         private System.Windows.Forms.PictureBox picMemoryCard7;
         private System.Windows.Forms.PictureBox picMemoryCard13;
         private System.Windows.Forms.PictureBox picMemoryCard19;
-        private System.Windows.Forms.Panel gameArea;
         private System.Windows.Forms.Label lblTime;
+        public System.Windows.Forms.Panel gameArea;
+        private System.Windows.Forms.Label lblStart;
     }
 }
 
